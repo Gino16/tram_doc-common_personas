@@ -6,20 +6,22 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "personas")
-public class Persona{
+public class Persona {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id_persona")
     private Long id;
 
-    @Column(unique = true)
-    private String dni_ruc;
+    @Column(name = "dni_ruc", unique = true)
+    private String dniRuc;
     private String nombre;
     private String correo;
-    private String cod_estudiante;
 
-    @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-    @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "id_puesto", nullable = false, unique = false)
+    @Column(name = "cod_estudiante")
+    private String codEstudiante;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "id_puesto")
     private Puesto puesto;
 
     public Long getId() {
@@ -30,12 +32,12 @@ public class Persona{
         this.id = id;
     }
 
-    public String getDni_ruc() {
-        return dni_ruc;
+    public String getDniRuc() {
+        return dniRuc;
     }
 
-    public void setDni_ruc(String dni_ruc) {
-        this.dni_ruc = dni_ruc;
+    public void setDniRuc(String dniRuc) {
+        this.dniRuc = dniRuc;
     }
 
     public String getNombre() {
@@ -54,12 +56,12 @@ public class Persona{
         this.correo = correo;
     }
 
-    public String getCod_estudiante() {
-        return cod_estudiante;
+    public String getCodEstudiante() {
+        return codEstudiante;
     }
 
-    public void setCod_estudiante(String cod_estudiante) {
-        this.cod_estudiante = cod_estudiante;
+    public void setCodEstudiante(String codEstudiante) {
+        this.codEstudiante = codEstudiante;
     }
 
     public Puesto getPuesto() {

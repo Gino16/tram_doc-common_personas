@@ -7,19 +7,18 @@ import javax.persistence.*;
 public class Puesto {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id_puesto;
+    @Column(name = "id_puesto")
+    private Long id;
 
     private String nombre;
 
-    @OneToOne(fetch = FetchType.LAZY, mappedBy = "puesto")
-    private Persona persona;
 
-    public Long getId_puesto() {
-        return id_puesto;
+    public Long getId() {
+        return id;
     }
 
-    public void setId_puesto(Long id_puesto) {
-        this.id_puesto = id_puesto;
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNombre() {
@@ -29,5 +28,6 @@ public class Puesto {
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
+
 
 }
