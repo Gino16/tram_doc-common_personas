@@ -1,6 +1,7 @@
 package com.tramite_documentario.microservicio.backend.commonpersonas.models.entity;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotEmpty;
 
 @Entity
 @Table(name = "puestos")

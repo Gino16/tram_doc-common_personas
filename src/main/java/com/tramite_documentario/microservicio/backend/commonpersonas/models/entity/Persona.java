@@ -3,6 +3,9 @@ package com.tramite_documentario.microservicio.backend.commonpersonas.models.ent
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 @Entity
 @Table(name = "personas")
@@ -13,13 +16,21 @@ public class Persona {
     private Long id;
 
     @Column(name = "dni_ruc", unique = true)
+    @NotEmpty
     private String dniRuc;
+
+    @NotEmpty
     private String nombre;
+
+    @NotEmpty
+    @Email
     private String correo;
 
     @Column(name = "cod_estudiante")
+    @NotEmpty
     private String codEstudiante;
 
+    @NotNull
     @JsonIgnoreProperties({"hibernateLazyInitializer"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_puesto")
