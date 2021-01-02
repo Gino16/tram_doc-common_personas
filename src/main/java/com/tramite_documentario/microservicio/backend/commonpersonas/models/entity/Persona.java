@@ -20,6 +20,7 @@ public class Persona {
     @Column(name = "cod_estudiante")
     private String codEstudiante;
 
+    @JsonIgnoreProperties({"hibernateLazyInitializer"})
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_puesto")
     private Puesto puesto;
