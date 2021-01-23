@@ -3,9 +3,7 @@ package com.tramite_documentario.microservicio.backend.commonpersonas.models.ent
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import javax.validation.constraints.Email;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "personas")
@@ -16,6 +14,7 @@ public class Persona {
     private Long id;
 
     @Column(name = "dni_ruc", unique = true)
+    @Size(min = 8, max = 11)
     @NotEmpty
     private String dniRuc;
 
@@ -26,8 +25,7 @@ public class Persona {
     @Email
     private String correo;
 
-    @Column(name = "cod_estudiante")
-    @NotEmpty
+    @Column(name = "cod_estudiante", nullable = true)
     private String codEstudiante;
 
     @NotNull
