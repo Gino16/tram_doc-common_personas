@@ -22,6 +22,9 @@ public class Persona {
     private String nombre;
 
     @NotEmpty
+    private String apellidos;
+
+    @NotEmpty
     @Email
     private String correo;
 
@@ -56,6 +59,14 @@ public class Persona {
 
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellidos() {
+        return apellidos;
+    }
+
+    public void setApellidos(String apellido) {
+        this.apellidos = apellido;
     }
 
     public String getCorreo() {
