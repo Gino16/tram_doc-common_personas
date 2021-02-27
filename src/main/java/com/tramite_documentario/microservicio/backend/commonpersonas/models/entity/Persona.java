@@ -21,7 +21,6 @@ public class Persona {
     @NotEmpty
     private String nombre;
 
-    @NotEmpty
     private String apellidos;
 
     @NotEmpty
